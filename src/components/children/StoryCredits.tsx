@@ -88,19 +88,21 @@ export function StoryCredits({ story }: { story: StoryMeta }) {
         </div>
       )}
 
-      <div className="text-sm text-muted-foreground">
-        <p className="font-medium text-foreground">What was changed for this app</p>
-        <ul className="mt-1 list-disc space-y-1 pl-5">
-          {c.changes.map((a) => (
-            <li key={a}>{a}</li>
-          ))}
-        </ul>
-        {c.source.name !== "Reading Buddy" && (
-          <p className="mt-2">
-            Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators.
-          </p>
-        )}
-      </div>
+      {(c.changes.length > 0 || c.source.name !== "Reading Buddy") && (
+        <div className="text-sm text-muted-foreground">
+          <p className="font-medium text-foreground">What was changed for this app</p>
+          <ul className="mt-1 list-disc space-y-1 pl-5">
+            {c.changes.map((a) => (
+              <li key={a}>{a}</li>
+            ))}
+          </ul>
+          {c.source.name !== "Reading Buddy" && (
+            <p className="mt-2">
+              Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators.
+            </p>
+          )}
+        </div>
+      )}
     </>
   );
 }

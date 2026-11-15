@@ -37,7 +37,8 @@ const story: StoryText = {
         "“Did anybody see it leave?”",
         "“It’s a slipper, Sami.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-02.webp",
+      alt: "Zina examines the damp strap of her yellow slipper while Sami sits on the bench with his bread.",
     },
     {
       paragraphs: [
@@ -56,7 +57,8 @@ const story: StoryText = {
         "“Your mat has somebody else’s slipper,” Zina said.",
         "He looked down at it.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-03.webp",
+      alt: "Zina and Sami find a blue slipper on Uncle Femi’s mat while Button peeps around Aunty Bisi’s ankle.",
     },
     {
       paragraphs: [
@@ -72,7 +74,8 @@ const story: StoryText = {
         "“Put that I noticed the breakfast possibility.”",
         "She did not.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-04.webp",
+      alt: "Zina writes in the exercise book while Sami looks over her shoulder.",
     },
     {
       paragraphs: [
@@ -91,9 +94,9 @@ const story: StoryText = {
         "“Then the wind helped.”",
         "They decided to try.",
       ],
-      image: "/stories/the-case-of-the-moving-slippers/chapter-2.jpg",
+      image: "/stories/the-case-of-the-moving-slippers/page-05.webp",
       heading: "Chapter 2: A Very Small Suspect",
-      alt: "Dami offers a leaf to Zina and Sami beside an upside-down black slipper.",
+      alt: "Uncle Femi looks down at one black slipper and one blue slipper as Zina and Sami investigate.",
     },
     {
       paragraphs: [
@@ -112,7 +115,8 @@ const story: StoryText = {
         "Zina looked at Sami.",
         "Sami looked at Dami.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-06.webp",
+      alt: "Sami blows at a black slipper while Zina watches and Dami arrives with her red cup.",
     },
     {
       paragraphs: [
@@ -131,7 +135,8 @@ const story: StoryText = {
         "They explained.",
         "“Dami was asleep indoors when I saw the blue slipper outside Uncle Femi’s door this morning,” she said. “She hadn’t come out yet.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-07.webp",
+      alt: "Dami takes a leaf from the overturned slipper while her mother explains that she was asleep earlier.",
     },
     {
       paragraphs: [
@@ -148,7 +153,8 @@ const story: StoryText = {
         "Sami glanced towards the sound, but his mum was already reminding him about his school bag.",
         "They had to leave the case until later.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/chapter-2.jpg",
+      alt: "Dami offers a leaf to Zina and Sami beside an upside-down black slipper.",
     },
     {
       paragraphs: [
@@ -167,9 +173,9 @@ const story: StoryText = {
         "“I’ve thought of something,” she told him.",
         "“So have I. We need biscuits while we investigate.”",
       ],
-      image: "/stories/the-case-of-the-moving-slippers/chapter-3.jpg",
+      image: "/stories/the-case-of-the-moving-slippers/page-09.webp",
       heading: "Chapter 3: What the Broom Knew",
-      alt: "Zina and Sami examine paw prints and a dragging mark while Uncle Femi holds his broom.",
+      alt: "Zina finds her yellow slippers pointing different ways while Uncle Femi sweeps the courtyard.",
     },
     {
       paragraphs: [
@@ -188,7 +194,8 @@ const story: StoryText = {
         "He leaned the broom against the wall.",
         "“Show me what you’ve found.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-10.webp",
+      alt: "Uncle Femi jokes about his glasses while Zina and Sami ask him about the sweeping.",
     },
     {
       paragraphs: [
@@ -207,7 +214,8 @@ const story: StoryText = {
         "“Button?”",
         "“Maybe.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/chapter-3.jpg",
+      alt: "Zina and Sami examine paw prints and a dragging mark while Uncle Femi holds his broom.",
     },
     {
       paragraphs: [
@@ -226,11 +234,13 @@ const story: StoryText = {
         "We need to see what happens.",
         "Sami read it.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-12.webp",
+      alt: "Sami holds out a still hand while Button watches from the doorway and Zina takes notes.",
     },
     {
       paragraphs: ["“We still need biscuits.”"],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-13.webp",
+      alt: "Sami makes a hopeful suggestion while Zina holds their notebook and smiles.",
     },
     {
       paragraphs: [
@@ -249,9 +259,9 @@ const story: StoryText = {
         "A bird landed on the wall.",
         "A taxi sounded its horn beyond the gate.",
       ],
-      image: "/stories/the-case-of-the-moving-slippers/chapter-4.jpg",
+      image: "/stories/the-case-of-the-moving-slippers/page-14.webp",
       heading: "Chapter 4: The Slipper Watch",
-      alt: "Zina, Sami and Mum wait on the bench while Button sneezes beside blue slippers.",
+      alt: "Zina checks her drawing while Sami and Mum settle on the bench for the slipper watch.",
     },
     {
       paragraphs: [
@@ -270,7 +280,8 @@ const story: StoryText = {
         "Zina pressed her lips together.",
         "Button looked towards them.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/chapter-4.jpg",
+      alt: "Zina, Sami and Mum wait on the bench while Button sneezes beside blue slippers.",
     },
     {
       paragraphs: [
@@ -289,7 +300,8 @@ const story: StoryText = {
         "“Nothing happened.”",
         "“That happened too.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-16.webp",
+      alt: "Button drinks water while Zina closes her notebook and Mum pours a cup of water.",
     },
     {
       paragraphs: [
@@ -308,11 +320,13 @@ const story: StoryText = {
         "She pointed.",
         "He disappeared and came back with the exercise book.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-17.webp",
+      alt: "After the rain, Zina points out Dami’s purple sandal to Sami at his window.",
     },
     {
       paragraphs: ["This time, the purple sandal had four little muddy marks beside it."],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-18.webp",
+      alt: "Dami’s purple sandal lies by the mat with four small muddy paw prints beside it.",
     },
     {
       paragraphs: [
@@ -331,9 +345,9 @@ const story: StoryText = {
         "Zina leaned forward.",
         "Button took the strap in his mouth.",
       ],
-      image: "/stories/the-case-of-the-moving-slippers/chapter-5.jpg",
+      image: "/stories/the-case-of-the-moving-slippers/page-19.webp",
       heading: "Chapter 5: Caught in the Middle",
-      alt: "Button carries a black slipper by its strap as the children watch and Aunty Bisi approaches with his ball.",
+      alt: "Zina and Sami watch Button take the black slipper’s strap in his mouth.",
     },
     {
       paragraphs: [
@@ -352,7 +366,8 @@ const story: StoryText = {
         "“Oh,” Sami said softly. “Sorry.”",
         "Aunty Bisi looked from the slipper to the children.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/chapter-5.jpg",
+      alt: "Button carries a black slipper by its strap as the children watch and Aunty Bisi approaches with his ball.",
     },
     {
       paragraphs: [
@@ -371,7 +386,8 @@ const story: StoryText = {
         "“He doesn’t know which ones are old,” Zina said.",
         "“No. That was my mistake.”",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-21.webp",
+      alt: "Zina explains what they saw as Aunty Bisi checks the slipper and Uncle Femi listens.",
     },
     {
       paragraphs: [
@@ -390,11 +406,13 @@ const story: StoryText = {
         "We saw Button carry the black slipper by its strap. He dropped it when his ball came out.",
         "Sami read the sentence.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-22.webp",
+      alt: "Button proudly holds his cloth ball while Sami sits quietly nearby and Zina records what happened.",
     },
     {
       paragraphs: ["“Now can we write that we solved it?”", "This time, she said yes."],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-23.webp",
+      alt: "Zina and Sami smile over their notebook, pleased that they have solved the mystery.",
     },
     {
       paragraphs: [
@@ -413,9 +431,9 @@ const story: StoryText = {
         "Aunty Bisi smiled and took the leaf out too.",
         "Zina brought the exercise book to the bench.",
       ],
-      image: "/stories/the-case-of-the-moving-slippers/chapter-6.jpg",
+      image: "/stories/the-case-of-the-moving-slippers/page-24.webp",
       heading: "Chapter 6: Two Slippers, One Ball",
-      alt: "Button waits with his cloth ball outside Zina’s door. Aunty Bisi holds his lead, and both yellow slippers sit together indoors.",
+      alt: "Aunty Bisi and Sami make a basket for Button’s toys while Dami offers a spoon.",
     },
     {
       paragraphs: [
@@ -434,7 +452,8 @@ const story: StoryText = {
         "Uncle Femi picked up the exercise book.",
         "He read about the wind, Dami, the broom and the muddy marks.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-25.webp",
+      alt: "The neighbours share puff-puff while Zina protects the notebook and Button receives his own treat.",
     },
     {
       paragraphs: [
@@ -453,7 +472,8 @@ const story: StoryText = {
         "She rolled it a short distance.",
         "Button ran after it, ears bouncing in different directions.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/page-26.webp",
+      alt: "Button brings his cloth ball to Zina, who smiles and reaches to roll it for him.",
     },
     {
       paragraphs: [
@@ -471,7 +491,8 @@ const story: StoryText = {
         "She picked it up.",
         "The end.",
       ],
-      image: null,
+      image: "/stories/the-case-of-the-moving-slippers/chapter-6.jpg",
+      alt: "Button waits with his cloth ball outside Zina’s door. Aunty Bisi holds his lead, and both yellow slippers sit together indoors.",
     },
   ],
 };

@@ -19,6 +19,7 @@ const wordCount = (ps: string[]) => ps.join(" ").split(/\s+/).filter(Boolean).le
 describe("built-in story manifest", () => {
   it("lists the approved stories with unique slugs", () => {
     expect(STORIES.map((s) => s.slug)).toEqual([
+      "the-case-of-the-moving-slippers",
       "whoop-goes-the-pufferfish",
       "karizas-questions",
       "jackal-and-the-sun",
@@ -27,7 +28,6 @@ describe("built-in story manifest", () => {
       "searching-for-the-spirit-of-spring",
       "the-girl-who-could-not-stop-laughing",
       "sailing-ships-and-sinking-spoons",
-      "the-case-of-the-moving-slippers",
     ]);
   });
 
@@ -48,7 +48,7 @@ describe("built-in story manifest", () => {
       expect(c.licenceUrl).toBeNull();
       expect(c.attribution).toContain("AI-assisted");
       expect(c.people.some(([role]) => /illustrat/i.test(role))).toBe(true);
-      expect(c.changes.join(" ")).toContain("pictures");
+      expect(c.changes).toEqual([]);
       return;
     }
     expect(c.licence).toBe("CC BY 4.0");
@@ -165,6 +165,16 @@ describe("built-in story manifest", () => {
       }
     },
   );
+
+  it("gives every original story page an illustration", async () => {
+    for (const s of STORIES.filter((s) => s.credit.source.name === "Reading Buddy")) {
+      const text = await loadStoryText(s.slug);
+      for (const page of text.pages) {
+        expect(page.image).toBeTruthy();
+        expect(existsSync(pub(page.image!))).toBe(true);
+      }
+    }
+  });
 
   it("only offers filters for themes the collection has, and each theme has a story", () => {
     for (const t of THEME_ORDER) expect(STORIES.some((s) => s.themes.includes(t))).toBe(true);

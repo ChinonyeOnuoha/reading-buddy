@@ -1,5 +1,6 @@
 import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { StoryCredits } from "@/components/children/StoryCredits";
 import { StoryReader } from "@/components/children/StoryReader";
 import { getStory, loadStoryText } from "@/content/stories";
 
@@ -361,5 +362,14 @@ describe("steady page turns", () => {
     expect(screen.getByText("Page 2 of 3")).toBeTruthy(); // same page
     expect(scrollTo).not.toHaveBeenCalled();
     expect(scrollBy).not.toHaveBeenCalled();
+  });
+});
+
+describe("original story credits", () => {
+  it("keeps attribution without production notes or a third-party licence", () => {
+    render(<StoryCredits story={getStory("the-case-of-the-moving-slippers")!} />);
+    expect(screen.getByText(/developed with Nonye/)).toBeTruthy();
+    expect(screen.queryByText("What was changed for this app")).toBeNull();
+    expect(screen.queryByText(/Creative Commons Attribution/)).toBeNull();
   });
 });
