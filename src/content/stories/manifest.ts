@@ -17,7 +17,7 @@ const SW_NOTE =
 /**
  * The built-in stories, in the order shown (shortest reading first). Each was read in full and its credits and licence checked
  * on the specific edition (see docs/children-corner-content.md). Pictures are re-encoded as JPEG; none has been redrawn,
- * recoloured or had lettering removed. Titles with no verifiable licence are not listed.
+ * recoloured or had lettering removed. External titles require a verified licence; original Reading Buddy stories are included with owner authorisation.
  *
  * `words` counts the story itself; `extraWords` counts pages a book prints after the story (notes, a game), which are shown
  * after it under their own label. Lengths and filters use the two together, because that is what is on the screen.
@@ -273,7 +273,8 @@ export const STORIES: StoryMeta[] = [
   {
     slug: "sailing-ships-and-sinking-spoons",
     title: "Sailing Ships and Sinking Spoons",
-    summary: "Two young monks and their teachers use an apple, a spoon and a tub to learn why ships float.",
+    summary:
+      "Two young monks and their teachers use an apple, a spoon and a tub to learn why ships float.",
     themes: ["science"],
     words: 834,
     extraWords: 354,
@@ -310,10 +311,44 @@ export const STORIES: StoryMeta[] = [
       ],
     },
   },
+  {
+    slug: "the-case-of-the-moving-slippers",
+    title: "The Case of the Moving Slippers",
+    summary:
+      "Zina and Sami investigate slippers that keep turning up outside the wrong doors in their Ibadan courtyard.",
+    themes: ["everyday", "funny"],
+    words: 2446,
+    extraWords: 0,
+    pageCount: 27,
+    cardImage: "/stories/the-case-of-the-moving-slippers/card.jpg",
+    cardFit: "contain",
+    credit: {
+      publishedTitle: "The Case of the Moving Slippers",
+      people: [
+        ["Created for", "Reading Buddy"],
+        ["Story and illustrations", "Created with AI assistance"],
+      ],
+      licence: null,
+      licenceUrl: null,
+      source: {
+        name: "Reading Buddy",
+        url: "https://readingbuddie.lovable.app/",
+      },
+      attribution:
+        "An original Reading Buddy story, developed with Nonye using AI-assisted writing and illustrations.",
+      acknowledgements: [],
+      changes: [
+        "The story’s words are unchanged apart from removing manuscript formatting. Chapter headings are preserved.",
+        "The six pictures are extracted from the approved illustration sheet and saved as JPEGs.",
+        "The book is presented as short reading pages with selectable text, rather than as a PDF.",
+      ],
+    },
+  },
 ];
 
 /** Story text is loaded only when a story is opened, one small module per story. */
 const LOADERS: Record<string, () => Promise<{ default: StoryText }>> = {
+  "the-case-of-the-moving-slippers": () => import("./text/the-case-of-the-moving-slippers"),
   "whoop-goes-the-pufferfish": () => import("./text/whoop-goes-the-pufferfish"),
   "karizas-questions": () => import("./text/karizas-questions"),
   "jackal-and-the-sun": () => import("./text/jackal-and-the-sun"),

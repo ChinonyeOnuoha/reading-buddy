@@ -23,14 +23,23 @@ export function StoryCredits({ story }: { story: StoryMeta }) {
             <dd>{c.copyright}</dd>
           </>
         )}
-        <dt className="font-medium">Licence</dt>
-        <dd>
-          <a className="text-link" href={c.licenceUrl} target="_blank" rel="noopener noreferrer">
-            Creative Commons Attribution 4.0 ({c.licence})
-            <ExternalLink className="ml-1 inline size-3.5" aria-hidden />
-            {ext}
-          </a>
-        </dd>
+        {c.licence && c.licenceUrl && (
+          <>
+            <dt className="font-medium">Licence</dt>
+            <dd>
+              <a
+                className="text-link"
+                href={c.licenceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Creative Commons Attribution 4.0 ({c.licence})
+                <ExternalLink className="ml-1 inline size-3.5" aria-hidden />
+                {ext}
+              </a>
+            </dd>
+          </>
+        )}
         <dt className="font-medium">Source</dt>
         <dd>
           <a className="text-link" href={c.source.url} target="_blank" rel="noopener noreferrer">
@@ -86,9 +95,11 @@ export function StoryCredits({ story }: { story: StoryMeta }) {
             <li key={a}>{a}</li>
           ))}
         </ul>
-        <p className="mt-2">
-          Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators.
-        </p>
+        {c.source.name !== "Reading Buddy" && (
+          <p className="mt-2">
+            Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators.
+          </p>
+        )}
       </div>
     </>
   );

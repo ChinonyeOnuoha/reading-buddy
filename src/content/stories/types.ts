@@ -17,7 +17,7 @@ export type StoryText = { pages: StoryPage[] };
 /** What a story is about. A story can have several; the catalogue's filters only list themes the collection really has. */
 export type StoryTheme = "tales" | "funny" | "everyday" | "nature" | "science";
 
-export type CreditSource = "African Storybook" | "Book Dash" | "StoryWeaver";
+export type CreditSource = "African Storybook" | "Book Dash" | "StoryWeaver" | "Reading Buddy";
 
 /**
  * Everything needed to credit a story as its licence and its source require, taken from the credits printed in the
@@ -30,8 +30,9 @@ export type StoryCredit = {
   people: [string, string][];
   /** The copyright line printed on the edition, where it prints one. */
   copyright?: string;
-  licence: "CC BY 4.0";
-  licenceUrl: string;
+  /** Null for an original story without a declared public reuse licence. */
+  licence: "CC BY 4.0" | null;
+  licenceUrl: string | null;
   source: { name: CreditSource; url: string };
   /** The "Original source" line of the edition, where it has one. */
   originalSource?: string;

@@ -17,7 +17,7 @@ const each = STORIES.map((s) => [s.slug, s] as const);
 const wordCount = (ps: string[]) => ps.join(" ").split(/\s+/).filter(Boolean).length;
 
 describe("built-in story manifest", () => {
-  it("lists the eight approved stories with unique slugs", () => {
+  it("lists the approved stories with unique slugs", () => {
     expect(STORIES.map((s) => s.slug)).toEqual([
       "whoop-goes-the-pufferfish",
       "karizas-questions",
@@ -27,12 +27,13 @@ describe("built-in story manifest", () => {
       "searching-for-the-spirit-of-spring",
       "the-girl-who-could-not-stop-laughing",
       "sailing-ships-and-sinking-spoons",
+      "the-case-of-the-moving-slippers",
     ]);
   });
 
-  it("comes from three different sources and covers every theme", () => {
+  it("comes from the credited sources and covers every theme", () => {
     expect(new Set(STORIES.map((s) => s.credit.source.name))).toEqual(
-      new Set(["African Storybook", "Book Dash", "StoryWeaver"]),
+      new Set(["African Storybook", "Book Dash", "StoryWeaver", "Reading Buddy"]),
     );
     const themes = new Set(STORIES.flatMap((s) => s.themes));
     expect([...themes].sort()).toEqual([...THEME_ORDER].sort());
@@ -42,6 +43,14 @@ describe("built-in story manifest", () => {
   it.each(each)("%s carries the complete credit its source and licence require", (_slug, s) => {
     const c = s.credit;
     expect(c.publishedTitle.trim()).not.toBe("");
+    if (c.source.name === "Reading Buddy") {
+      expect(c.licence).toBeNull();
+      expect(c.licenceUrl).toBeNull();
+      expect(c.attribution).toContain("AI-assisted");
+      expect(c.people.some(([role]) => /illustrat/i.test(role))).toBe(true);
+      expect(c.changes.join(" ")).toContain("pictures");
+      return;
+    }
     expect(c.licence).toBe("CC BY 4.0");
     expect(c.licenceUrl).toBe("https://creativecommons.org/licenses/by/4.0/");
     const roles = c.people.map(([r]) => r);
@@ -54,7 +63,8 @@ describe("built-in story manifest", () => {
     // every person who made the story is named in the attribution (publishers and storytellers excepted)
     for (const [role, names] of c.people) {
       if (/^(Written|Illustrated|Designed|Translated) by$/.test(role))
-        for (const n of names.split(/,| and /).map((x) => x.trim())) expect(c.attribution).toContain(n);
+        for (const n of names.split(/,| and /).map((x) => x.trim()))
+          expect(c.attribution).toContain(n);
     }
     if (c.source.name === "African Storybook") {
       expect(c.source.url).toMatch(/^https:\/\/www\.africanstorybook\.org\/reader\.php\?id=\d+$/);
@@ -93,51 +103,68 @@ describe("built-in story manifest", () => {
 
   it("names the San artists whose paintings the Jackal and the Sun pictures rework", () => {
     const a = getStory("jackal-and-the-sun")!.credit.acknowledgements.join(" ");
-    for (const n of ["/Thaalu Rumao", "/Tuoi Samcuia", "Joao Wenne Dikuango", "Marlene Winberg", "Bega Cgase"])
+    for (const n of [
+      "/Thaalu Rumao",
+      "/Tuoi Samcuia",
+      "Joao Wenne Dikuango",
+      "Marlene Winberg",
+      "Bega Cgase",
+    ])
       expect(a).toContain(n);
     expect(a).toMatch(/passed away/);
   });
 
-  it.each(each)("%s: text matches the manifest, with the story and its extra pages counted separately", async (_slug, s) => {
-    const t = await loadStoryText(s.slug);
-    expect(t.pages).toHaveLength(s.pageCount);
-    const story = t.pages.filter((p) => !p.extra);
-    const extra = t.pages.filter((p) => p.extra);
-    expect(wordCount(story.flatMap((p) => p.paragraphs))).toBe(s.words);
-    const extraWords = extra.reduce((n, p) => n + wordCount([p.heading ?? "", ...p.paragraphs]), 0);
-    expect(extraWords).toBe(s.extraWords);
-    // pages printed after the story come after it, together, and the manifest says what they are
-    const firstExtra = t.pages.findIndex((p) => p.extra);
-    if (extra.length) {
-      expect(firstExtra).toBe(story.length);
-      expect(s.extraName).toBeTruthy();
-      for (const p of extra) expect(p.extra!.trim()).not.toBe("");
-    } else {
-      expect(s.extraWords).toBe(0);
-    }
-    for (const p of t.pages) {
-      expect(p.paragraphs.length > 0 || !!p.image).toBe(true); // a page has words or a picture
-      for (const para of p.paragraphs) {
-        expect(para.trim()).toBe(para);
-        expect(para).not.toBe("");
-        expect(para).not.toMatch(/\s{2,}/); // whitespace normalised
-        expect(para.includes(String.fromCharCode(0)) || para.includes(String.fromCharCode(0xfffd))).toBe(false); // no lost ligature glyphs
-        expect(para).not.toMatch(/\bPu\?|\?er\b|\b[A-Za-z]+\?[a-z]+\b/); // nor a leftover placeholder
+  it.each(each)(
+    "%s: text matches the manifest, with the story and its extra pages counted separately",
+    async (_slug, s) => {
+      const t = await loadStoryText(s.slug);
+      expect(t.pages).toHaveLength(s.pageCount);
+      const story = t.pages.filter((p) => !p.extra);
+      const extra = t.pages.filter((p) => p.extra);
+      expect(wordCount(story.flatMap((p) => p.paragraphs))).toBe(s.words);
+      const extraWords = extra.reduce(
+        (n, p) => n + wordCount([p.heading ?? "", ...p.paragraphs]),
+        0,
+      );
+      expect(extraWords).toBe(s.extraWords);
+      // pages printed after the story come after it, together, and the manifest says what they are
+      const firstExtra = t.pages.findIndex((p) => p.extra);
+      if (extra.length) {
+        expect(firstExtra).toBe(story.length);
+        expect(s.extraName).toBeTruthy();
+        for (const p of extra) expect(p.extra!.trim()).not.toBe("");
+      } else {
+        expect(s.extraWords).toBe(0);
       }
-    }
-  });
+      for (const p of t.pages) {
+        expect(p.paragraphs.length > 0 || !!p.image).toBe(true); // a page has words or a picture
+        for (const para of p.paragraphs) {
+          expect(para.trim()).toBe(para);
+          expect(para).not.toBe("");
+          expect(para).not.toMatch(/\s{2,}/); // whitespace normalised
+          expect(
+            para.includes(String.fromCharCode(0)) || para.includes(String.fromCharCode(0xfffd)),
+          ).toBe(false); // no lost ligature glyphs
+          expect(para).not.toMatch(/\bPu\?|\?er\b|\b[A-Za-z]+\?[a-z]+\b/); // nor a leftover placeholder
+        }
+      }
+    },
+  );
 
-  it.each(each)("%s: every picture is served from the app and has a description", async (_slug, s) => {
-    expect(existsSync(pub(s.cardImage))).toBe(true);
-    const t = await loadStoryText(s.slug);
-    const withImage = t.pages.filter((p) => p.image);
-    expect(withImage.length).toBeGreaterThan(0);
-    for (const p of withImage) {
-      expect(existsSync(pub(p.image!))).toBe(true);
-      expect((p.alt ?? "").trim().length).toBeGreaterThan(15); // described, not left as decoration
-      expect(p.alt).not.toMatch(/\bimage of\b|\bpicture of\b/i);
-    }
-  });
+  it.each(each)(
+    "%s: every picture is served from the app and has a description",
+    async (_slug, s) => {
+      expect(existsSync(pub(s.cardImage))).toBe(true);
+      const t = await loadStoryText(s.slug);
+      const withImage = t.pages.filter((p) => p.image);
+      expect(withImage.length).toBeGreaterThan(0);
+      for (const p of withImage) {
+        expect(existsSync(pub(p.image!))).toBe(true);
+        expect((p.alt ?? "").trim().length).toBeGreaterThan(15); // described, not left as decoration
+        expect(p.alt).not.toMatch(/\bimage of\b|\bpicture of\b/i);
+      }
+    },
+  );
 
   it("only offers filters for themes the collection has, and each theme has a story", () => {
     for (const t of THEME_ORDER) expect(STORIES.some((s) => s.themes.includes(t))).toBe(true);
@@ -157,7 +184,9 @@ describe("built-in story manifest", () => {
     expect(lengthLabel(561)).toBe("Longer story");
     const sailing = getStory("sailing-ships-and-sinking-spoons")!;
     expect(readingWords(sailing)).toBe(sailing.words + sailing.extraWords);
-    expect(wordsLine(sailing)).toBe(`${sailing.words} words, plus ${sailing.extraWords} in the science notes`);
+    expect(wordsLine(sailing)).toBe(
+      `${sailing.words} words, plus ${sailing.extraWords} in the science notes`,
+    );
     expect(wordsLine(getStory("a-fish-and-a-gift")!)).toBe("655 words");
   });
 
