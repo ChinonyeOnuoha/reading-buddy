@@ -373,3 +373,10 @@ describe("original story credits", () => {
     expect(screen.queryByText(/Creative Commons Attribution/)).toBeNull();
   });
 });
+
+it("shows the tomato story summary without removed credits", () => {
+  const tomato = getStory("the-tomato-that-went-for-a-walk")!;
+  const { container } = render(<StoryCredits story={tomato} />);
+  expect(screen.getByText(tomato.summary)).toBeTruthy();
+  expect(container.textContent).not.toMatch(/Nonye|AI|Reading Buddy|Illustrated by|Created for/);
+});

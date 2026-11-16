@@ -7,6 +7,9 @@ import type { StoryMeta } from "@/content/stories";
  */
 export function StoryCredits({ story }: { story: StoryMeta }) {
   const c = story.credit;
+  if (c.source.name === "Reading Buddy" && c.people.length === 0 && !c.attribution) {
+    return <p className="text-sm">{story.summary}</p>;
+  }
   const ext = <span className="sr-only"> (opens in a new tab)</span>;
   return (
     <>

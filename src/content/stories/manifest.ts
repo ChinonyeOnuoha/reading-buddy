@@ -24,6 +24,31 @@ const SW_NOTE =
  */
 const catalogue: StoryMeta[] = [
   {
+    slug: "the-tomato-that-went-for-a-walk",
+    title: "The Tomato That Went for a Walk",
+    summary:
+      "A tomato tumbles from Ejiro’s basket and sends her and Mum on a little market adventure.",
+    themes: ["everyday", "funny"],
+    words: 189,
+    extraWords: 0,
+    pageCount: 8,
+    cardImage: "/stories/the-tomato-that-went-for-a-walk/page-02.webp",
+    cardFit: "contain",
+    credit: {
+      publishedTitle: "The Tomato That Went for a Walk",
+      people: [],
+      licence: null,
+      licenceUrl: null,
+      source: {
+        name: "Reading Buddy",
+        url: "https://readingbuddie.lovable.app/",
+      },
+      attribution: "",
+      acknowledgements: [],
+      changes: [],
+    },
+  },
+  {
     slug: "the-case-of-the-moving-slippers",
     title: "The Case of the Moving Slippers",
     summary:
@@ -350,6 +375,7 @@ export const STORIES: StoryMeta[] = [...catalogue].sort(
 
 /** Story text is loaded only when a story is opened, one small module per story. */
 const LOADERS: Record<string, () => Promise<{ default: StoryText }>> = {
+  "the-tomato-that-went-for-a-walk": () => import("./text/the-tomato-that-went-for-a-walk"),
   "the-case-of-the-moving-slippers": () => import("./text/the-case-of-the-moving-slippers"),
   "whoop-goes-the-pufferfish": () => import("./text/whoop-goes-the-pufferfish"),
   "karizas-questions": () => import("./text/karizas-questions"),
