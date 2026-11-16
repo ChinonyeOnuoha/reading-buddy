@@ -61,18 +61,14 @@ const catalogue: StoryMeta[] = [
     cardFit: "contain",
     credit: {
       publishedTitle: "The Case of the Moving Slippers",
-      people: [
-        ["Created for", "Reading Buddy"],
-        ["Story and illustrations", "Created with AI assistance"],
-      ],
+      people: [],
       licence: null,
       licenceUrl: null,
       source: {
         name: "Reading Buddy",
         url: "https://readingbuddie.lovable.app/",
       },
-      attribution:
-        "An original Reading Buddy story, developed with Nonye using AI-assisted writing and illustrations.",
+      attribution: "",
       acknowledgements: [],
       changes: [],
     },

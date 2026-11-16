@@ -47,13 +47,8 @@ describe("built-in story manifest", () => {
     if (c.source.name === "Reading Buddy") {
       expect(c.licence).toBeNull();
       expect(c.licenceUrl).toBeNull();
-      if (s.slug === "the-case-of-the-moving-slippers") {
-        expect(c.attribution).toContain("AI-assisted");
-        expect(c.people.some(([role]) => /illustrat/i.test(role))).toBe(true);
-      } else {
-        expect(c.people).toEqual([]);
-        expect(c.attribution).toBe("");
-      }
+      expect(c.people).toEqual([]);
+      expect(c.attribution).toBe("");
       expect(c.changes).toEqual([]);
       return;
     }

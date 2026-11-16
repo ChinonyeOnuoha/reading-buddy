@@ -366,9 +366,11 @@ describe("steady page turns", () => {
 });
 
 describe("original story credits", () => {
-  it("keeps attribution without production notes or a third-party licence", () => {
-    render(<StoryCredits story={getStory("the-case-of-the-moving-slippers")!} />);
-    expect(screen.getByText(/developed with Nonye/)).toBeTruthy();
+  it("shows the slippers summary without removed credits", () => {
+    const story = getStory("the-case-of-the-moving-slippers")!;
+    const { container } = render(<StoryCredits story={story} />);
+    expect(screen.getByText(story.summary)).toBeTruthy();
+    expect(container.textContent).not.toMatch(/Nonye|AI|Reading Buddy|Illustrated by|Created for/);
     expect(screen.queryByText("What was changed for this app")).toBeNull();
     expect(screen.queryByText(/Creative Commons Attribution/)).toBeNull();
   });
