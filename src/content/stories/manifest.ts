@@ -24,6 +24,31 @@ const SW_NOTE =
  */
 const catalogue: StoryMeta[] = [
   {
+    slug: "a-place-for-the-rain",
+    title: "A Place for the Rain",
+    summary:
+      "When rain washes away Teni’s chalk game, she and her cousin invent a smaller adventure indoors.",
+    themes: ["everyday"],
+    words: 567,
+    extraWords: 0,
+    pageCount: 6,
+    cardImage: "/stories/a-place-for-the-rain/page-01.webp",
+    cardFit: "contain",
+    credit: {
+      publishedTitle: "A Place for the Rain",
+      people: [],
+      licence: null,
+      licenceUrl: null,
+      source: {
+        name: "Reading Buddy",
+        url: "https://readingbuddie.lovable.app/",
+      },
+      attribution: "",
+      acknowledgements: [],
+      changes: [],
+    },
+  },
+  {
     slug: "the-tomato-that-went-for-a-walk",
     title: "The Tomato That Went for a Walk",
     summary:
@@ -371,6 +396,7 @@ export const STORIES: StoryMeta[] = [...catalogue].sort(
 
 /** Story text is loaded only when a story is opened, one small module per story. */
 const LOADERS: Record<string, () => Promise<{ default: StoryText }>> = {
+  "a-place-for-the-rain": () => import("./text/a-place-for-the-rain"),
   "the-tomato-that-went-for-a-walk": () => import("./text/the-tomato-that-went-for-a-walk"),
   "the-case-of-the-moving-slippers": () => import("./text/the-case-of-the-moving-slippers"),
   "whoop-goes-the-pufferfish": () => import("./text/whoop-goes-the-pufferfish"),
