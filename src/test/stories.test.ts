@@ -19,6 +19,7 @@ const wordCount = (ps: string[]) => ps.join(" ").split(/\s+/).filter(Boolean).le
 describe("built-in story manifest", () => {
   it("lists the approved stories with unique slugs", () => {
     expect(STORIES.map((s) => s.slug)).toEqual([
+      "i-was-the-door",
       "a-place-for-the-rain",
       "the-tomato-that-went-for-a-walk",
       "the-case-of-the-moving-slippers",

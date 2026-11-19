@@ -24,6 +24,31 @@ const SW_NOTE =
  */
 const catalogue: StoryMeta[] = [
   {
+    slug: "i-was-the-door",
+    title: "I Was the Door",
+    summary:
+      "Kene wants to make everyone laugh in the school play, but his noisy knocks keep interrupting Ibi.",
+    themes: ["everyday", "funny"],
+    words: 583,
+    extraWords: 0,
+    pageCount: 4,
+    cardImage: "/stories/i-was-the-door/page-01.webp",
+    cardFit: "contain",
+    credit: {
+      publishedTitle: "I Was the Door",
+      people: [],
+      licence: null,
+      licenceUrl: null,
+      source: {
+        name: "Reading Buddy",
+        url: "https://readingbuddie.lovable.app/",
+      },
+      attribution: "",
+      acknowledgements: [],
+      changes: [],
+    },
+  },
+  {
     slug: "a-place-for-the-rain",
     title: "A Place for the Rain",
     summary:
@@ -396,6 +421,7 @@ export const STORIES: StoryMeta[] = [...catalogue].sort(
 
 /** Story text is loaded only when a story is opened, one small module per story. */
 const LOADERS: Record<string, () => Promise<{ default: StoryText }>> = {
+  "i-was-the-door": () => import("./text/i-was-the-door"),
   "a-place-for-the-rain": () => import("./text/a-place-for-the-rain"),
   "the-tomato-that-went-for-a-walk": () => import("./text/the-tomato-that-went-for-a-walk"),
   "the-case-of-the-moving-slippers": () => import("./text/the-case-of-the-moving-slippers"),
