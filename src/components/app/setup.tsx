@@ -41,13 +41,13 @@ export function HomePanel({
         </div>
         <p className="lead">
           {welcomeBack
-            ? "Your nook is just as you left it."
-            : "Make time to read aloud, record yourself and listen back."}
+            ? "Your nook is just as you left it"
+            : "Make time to read aloud, record yourself and listen back"}
         </p>
         <div className="flex flex-col gap-2">
           {choice("Practise reading aloud", adultSub, onAdult)}
           {choice("Children’s corner", kidSub, onKid)}
-          {choice("Try a sample", "See how it works. No microphone needed.", onSample)}
+          {choice("Try a sample", "See how it works. No microphone needed", onSample)}
         </div>
       </div>
       <div className="panel-foot">{footer}</div>
@@ -133,8 +133,8 @@ export function TimeStep({
         </ScreenTitle>
         <p className="lead">
           {kid
-            ? "For grown-ups. A gentle guide that never counts down or stops the reader."
-            : "Only recorded time counts, and you can keep going after."}
+            ? "For grown-ups. A gentle guide that never counts down or stops the reader"
+            : "Only recorded time counts, and you can keep going after"}
         </p>
         <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Minutes">
           {presets.map((m) => (m === null ? opt(null, "Off", "no time") : opt(m, m, "min")))}
@@ -193,7 +193,7 @@ export function TimeStep({
               id="minutes-hint"
               className={`text-sm ${bad ? "text-destructive" : "text-muted-foreground"}`}
             >
-              {bad ? "Enter a whole number from 1 to 180." : "Any whole number from 1 to 180."}
+              {bad ? "Enter a whole number from 1 to 180" : "Any whole number from 1 to 180"}
             </p>
           </div>
         )}
@@ -247,7 +247,7 @@ export function ColourStep({
         />
         <ScreenTitle kid={kid}>{kid ? "Pick your beanbag" : "Get comfortable"}</ScreenTitle>
         <p className="lead">
-          {kid ? "Which colour feels like you today?" : "Choose a cushion. Then the lamp comes on."}
+          {kid ? "Which colour feels like you today?" : "Choose a cushion. Then the lamp comes on"}
         </p>
         <div
           role="radiogroup"
@@ -329,7 +329,7 @@ export function ReadyPanel({
     <>
       <div className="panel-body">
         <p className="text-sm text-muted-foreground" role="status">
-          {lampOn ? `The ${light} is on.` : `The ${light} is warming up…`}
+          {lampOn ? `The ${light} is on` : `The ${light} is warming up…`}
         </p>
         <ScreenTitle kid>{kid ? "Your corner is ready" : "Your nook is ready"}</ScreenTitle>
         <ul aria-label={kid ? "Your corner" : "Your nook"} className="flex flex-col">

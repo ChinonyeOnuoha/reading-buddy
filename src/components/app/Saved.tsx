@@ -45,7 +45,7 @@ export function SavedPanel({
         <StepHead onBack={onHome} backLabel="Home" />
         <ScreenTitle>Saved on this device</ScreenTitle>
         <p className="lead">
-          Kept in this browser only and never uploaded. Anyone using this device can open them.
+          Kept in this browser only and never uploaded. Anyone using this device can open them
         </p>
         <div className="flex flex-col gap-2">
           <div className="flex justify-between gap-3 text-sm text-muted-foreground">
@@ -102,7 +102,7 @@ export function SavedPanel({
           </ul>
         ) : (
           <p className="text-sm text-muted-foreground">
-            Nothing saved yet. Your passages, page photos and recordings appear here.
+            Nothing saved yet. Your passages, page photos and recordings appear here
           </p>
         )}
         <div className="border-t border-border pt-4">

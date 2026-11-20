@@ -20,7 +20,7 @@ function NotFoundComponent() {
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          The page you're looking for doesn't exist or has been moved
         </p>
         <div className="mt-6">
           <Link
@@ -49,7 +49,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Something went wrong on our end. You can try refreshing or head back home
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "apple-mobile-web-app-title", content: "Reading Buddy" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
       { title: "Reading Buddy — practise reading aloud" },
-      { name: "description", content: "Build a quiet reading nook, read aloud, record yourself and listen back. Everything stays on your device. AI feedback and text extraction are not connected yet." },
+      { name: "description", content: "Build a quiet reading nook, read aloud, record yourself and listen back. Everything stays on your device. AI feedback and text extraction are not connected yet" },
     ],
     links: [
       {

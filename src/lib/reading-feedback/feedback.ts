@@ -57,12 +57,12 @@ export const BIN_S = 20; // the pace chart shows words a minute every 20 seconds
 
 const TRY: Record<Moment["kind"] | "pace", string> = {
   skipped:
-    "On your next passage, you could guide your eyes with a finger or a pen, and see how it feels.",
+    "On your next passage, you could guide your eyes with a finger or a pen, and see how it feels",
   repeated:
-    "On your next passage, you could guide your eyes with a finger or a pen, and see how it feels.",
+    "On your next passage, you could guide your eyes with a finger or a pen, and see how it feels",
   pause:
-    "On your next passage, you could lightly mark the phrases before reading it aloud, and see how it feels.",
-  pace: "On your next passage, you could take one easy breath before each sentence, and notice how it sounds.",
+    "On your next passage, you could lightly mark the phrases before reading it aloud, and see how it feels",
+  pace: "On your next passage, you could take one easy breath before each sentence, and notice how it sounds",
 };
 
 export const clock = (s: number) =>
@@ -233,7 +233,7 @@ export function buildFeedback({
       const gone = tok.slice(from, to + 1).map(bare);
       const names = gone.every((_, j) => isName(tok, from + j));
       if (to === tok.length - 1 && gone.length >= MIN_RUN) {
-        endsEarly = `The recording ends before “${quote(gone.slice(0, 5))}”, so the rest of the passage wasn't checked.`;
+        endsEarly = `The recording ends before “${quote(gone.slice(0, 5))}”, so the rest of the passage wasn't checked`;
       } else if (gone.length >= MIN_RUN && !names) {
         const at = op.near ?? timeBefore(k);
         const next = ops.slice(e + 1).find((o) => o.type !== "del" && o.hyp.start != null);
@@ -242,7 +242,7 @@ export function buildFeedback({
           kind: "skipped",
           at,
           until,
-          text: `“${quote(gone)}”. ${gone.length >= 6 ? "A line may have been skipped." : "These words weren't heard."}`,
+          text: `“${quote(gone)}”. ${gone.length >= 6 ? "A line may have been skipped" : "These words weren't heard"}`,
         });
       }
       k = e;
@@ -261,7 +261,7 @@ export function buildFeedback({
           kind: "repeated",
           at: run[0]!.hyp.start,
           until: run.at(-1)!.hyp.end ?? run[0]!.hyp.start,
-          text: `“${quote(heard)}” was heard twice in a row.`,
+          text: `“${quote(heard)}” was heard twice in a row`,
         });
       k = e;
     }
@@ -292,7 +292,7 @@ export function buildFeedback({
         kind: "pause",
         at: p.start,
         until: p.end,
-        text: `About ${secs} ${secs === 1 ? "second" : "seconds"} in “${before} … ${after}”.`,
+        text: `About ${secs} ${secs === 1 ? "second" : "seconds"} in “${before} … ${after}”`,
       });
     }
   }
@@ -316,14 +316,14 @@ export function buildFeedback({
       summary: change
         ? `Steady at about ${Math.round(change.before / 10) * 10} words a minute, then ${
             change.after > change.before ? "quicker" : "slower"
-          } from about ${clock(change.at)}.`
-        : `Steady all the way through, at about ${steady} words a minute.`,
+          } from about ${clock(change.at)}`
+        : `Steady all the way through, at about ${steady} words a minute`,
     };
   } else {
     pace = {
       bins: [],
       changeAt: null,
-      summary: "Pace couldn't be measured reliably from this recording, so it's left out.",
+      summary: "Pace couldn't be measured reliably from this recording, so it's left out",
     };
   }
 

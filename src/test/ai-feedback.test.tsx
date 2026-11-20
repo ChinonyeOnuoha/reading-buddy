@@ -90,7 +90,7 @@ describe("turning AI feedback on", () => {
     );
     const turnOn = screen.getByRole("button", { name: "Turn on AI feedback" });
     expect(turnOn).toBeDisabled();
-    expect(screen.getByText("Tick the box to turn it on.")).toBeInTheDocument();
+    expect(screen.getByText("Tick the box to turn it on")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("checkbox", { name: /18 or over.*own voice.*I agree/ }));
     fireEvent.click(turnOn);
     expect(ai.choose).toHaveBeenCalledWith("ai");
@@ -112,7 +112,7 @@ describe("turning AI feedback on", () => {
     fireEvent.click(screen.getByRole("button", { name: "About AI feedback" }));
     expect(onTurnOn).toHaveBeenCalledTimes(1);
     rerender(<Card ai={fake({ choice: "device" })} />);
-    expect(screen.getByText("Your recordings stay on this device.")).toBeInTheDocument();
+    expect(screen.getByText("Your recordings stay on this device")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Get notes/ })).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "AI feedback is off. Turn on" }));
     expect(onTurnOn).toHaveBeenCalledTimes(2);
@@ -124,7 +124,7 @@ describe("AI feedback card", () => {
     const ai = fake({ choice: "ai" });
     render(<Card ai={ai} />);
     expect(
-      screen.getByText("Sends this recording to AssemblyAI, which may use it to train its models."),
+      screen.getByText("Sends this recording to AssemblyAI, which may use it to train its models"),
     ).toBeInTheDocument();
     expect(ai.start).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole("button", { name: "Get notes on this recording" }));
@@ -156,7 +156,7 @@ describe("AI feedback card", () => {
       />,
     );
     expect(screen.getByRole("status")).toHaveTextContent(
-      /free allowance has been used up\. Recording and playback work as usual\./,
+      /free allowance has been used up\. Recording and playback work as usual$/,
     );
     expect(screen.queryByRole("button", { name: /Get notes/ })).toBeNull();
   });

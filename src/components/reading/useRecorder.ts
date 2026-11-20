@@ -289,7 +289,7 @@ export function useRecorder(onComplete: () => void) {
       await engineRef.current.resume();
       setRecState("recording");
     } catch {
-      setProblem("Recording couldn't resume. Everything recorded so far is safe — you can finish and listen back.");
+      setProblem("Recording couldn't resume. Everything recorded so far is safe — you can finish and listen back");
     }
   }, []);
 
@@ -304,7 +304,7 @@ export function useRecorder(onComplete: () => void) {
       previewUrl.current = URL.createObjectURL(encodeWav(chunks.current, rateRef.current));
       return previewUrl.current;
     } catch {
-      setProblem("The recording so far couldn't be played. It's still safe — you can resume or finish.");
+      setProblem("The recording so far couldn't be played. It's still safe — you can resume or finish");
       return null;
     }
   }, []);
@@ -322,7 +322,7 @@ export function useRecorder(onComplete: () => void) {
       if (!frames.current) {
         releaseMic();
         setRecState("idle");
-        setProblem("No audio was captured, so there's nothing to keep.");
+        setProblem("No audio was captured, so there's nothing to keep");
         return null;
       }
       const url = URL.createObjectURL(encodeWav(chunks.current, rateRef.current));
@@ -339,7 +339,7 @@ export function useRecorder(onComplete: () => void) {
       if (gen === generation.current) {
         await engineRef.current?.pause().catch(() => {});
         setRecState("paused");
-        setProblem("The recording couldn't be finished just now. Your audio so far is safe — try Finish recording again.");
+        setProblem("The recording couldn't be finished just now. Your audio so far is safe — try Finish recording again");
       }
       return null;
     }

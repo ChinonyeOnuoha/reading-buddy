@@ -174,7 +174,7 @@ describe("main practice setup", () => {
     const field = screen.getByLabelText("Your minutes") as HTMLInputElement;
     fireEvent.change(field, { target: { value: "400" } });
     expect(field.getAttribute("aria-invalid")).toBe("true");
-    expect(screen.getByText("Enter a whole number from 1 to 180.")).toBeTruthy();
+    expect(screen.getByText("Enter a whole number from 1 to 180")).toBeTruthy();
     expect(btn(/^continue$/i)).toBeDisabled();
     fireEvent.change(field, { target: { value: "35" } });
     click("5 minutes more");
@@ -262,7 +262,7 @@ describe("photographed pages", () => {
     await toPages(3);
     fireEvent.click(screen.getByRole("option", { name: "Page 1" }));
     click("Later");
-    expect(screen.getByText("Page 1 moved to position 2 of 3.")).toBeTruthy();
+    expect(screen.getByText("Page 1 moved to position 2 of 3")).toBeTruthy();
     expect(screen.getByRole("option", { name: "Page 2" }).getAttribute("aria-selected")).toBe(
       "true",
     );
@@ -320,7 +320,7 @@ describe("reading and recording", () => {
     btn("More options").focus();
     fireEvent.keyDown(btn("More options"), { key: "Enter" });
     fireEvent.click(await screen.findByRole("menuitem", { name: "Delete recording" }));
-    const status = await screen.findByText("Recording deleted.");
+    const status = await screen.findByText("Recording deleted");
     fireEvent.click(within(status.parentElement!).getByRole("button", { name: "Undo" }));
     click(/^nook$/i);
     await heading(/your nook is ready/i);
@@ -458,7 +458,7 @@ describe("saved on this device", () => {
     click("Saved on this device");
     await heading(/saved on this device/i);
     click(/^delete pasted passage$/i);
-    const msg = await screen.findByText("“Pasted passage” deleted.");
+    const msg = await screen.findByText("“Pasted passage” deleted");
     expect(screen.getAllByText(/nothing saved yet/i).length).toBeGreaterThan(0);
     fireEvent.click(within(msg.parentElement!).getByRole("button", { name: "Undo" }));
     expect(await screen.findByText("Pasted passage")).toBeTruthy();

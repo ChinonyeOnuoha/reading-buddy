@@ -161,9 +161,9 @@ export function StoryReader({ story, textSize, onTextSize, page: controlled, onP
 
       {load.state === "error" && (
         <div role="alert" className="rounded-2xl border border-border bg-tint p-4">
-          <p className="font-medium">This story couldn’t be opened.</p>
+          <p className="font-medium">This story couldn’t be opened</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Check your connection, then try again.
+            Check your connection, then try again
           </p>
           <button type="button" className="btn-secondary mt-3" onClick={() => void fetchText()}>
             Try again
@@ -242,8 +242,8 @@ export function StoryReader({ story, textSize, onTextSize, page: controlled, onP
                               >
                                 <p className="text-muted-foreground">
                                   {pg.paragraphs.length > 0
-                                    ? "This picture couldn’t be loaded. The words for this page are below."
-                                    : "This picture couldn’t be loaded. This page has no words, only the picture; what it shows is described below."}
+                                    ? "This picture couldn’t be loaded. The words for this page are below"
+                                    : "This picture couldn’t be loaded. This page has no words, only the picture; what it shows is described below"}
                                 </p>
                                 <button
                                   type="button"

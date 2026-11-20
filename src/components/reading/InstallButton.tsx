@@ -31,7 +31,7 @@ export function InstallButton({ canInstall, ios, onInstall }: Props) {
         className="w-64 rounded-2xl border-border bg-card p-4 text-sm text-foreground shadow-none"
       >
         In Safari, tap Share, then “Add to Home Screen”. Sessions still clear when the app is
-        closed.
+        closed
       </PopoverContent>
     </Popover>
   );

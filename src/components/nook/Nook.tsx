@@ -137,9 +137,9 @@ export function Nook(props: NookProps) {
   const clockUnit = minutes ? "min a day" : "not set";
 
   const alt =
-    "A reading nook: an armchair beside an arc floor lamp, a wall clock, a window onto ginkgo leaves, and a children’s corner with a beanbag and a basket of picture books." +
-    (lit ? " The lamp is on and lights the armchair." : "") +
-    (kidLamp ? " The lantern lights the beanbag." : "");
+    "A reading nook: an armchair beside an arc floor lamp, a wall clock, a window onto ginkgo leaves, and a children’s corner with a beanbag and a basket of picture books" +
+    (lit ? ". The lamp is on and lights the armchair" : "") +
+    (kidLamp ? ". The lantern lights the beanbag" : "");
 
   const fClock = minutes ? undefined : SK;
   const fChair = chairSet ? undefined : SK;

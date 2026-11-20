@@ -61,7 +61,7 @@ export function SamplePanel({
             {step === 1 && <ScreenTitle>This is the reading screen</ScreenTitle>}
             {step !== 1 && <p className="title">This is the reading screen</p>}
             <p className="lead">
-              You read your passage aloud while Buddy records. In the sample, recording is off.
+              You read your passage aloud while Buddy records. In the sample, recording is off
             </p>
             <div className="rounded-xl bg-paper p-6 font-serif text-[1.1875rem] leading-relaxed text-paper-ink">
               {SAMPLE_PASSAGE}
@@ -75,7 +75,7 @@ export function SamplePanel({
             )}
             <p className="lead">
               After a real reading, your recording plays here. The sample has no demo audio, so
-              there is nothing to play.
+              there is nothing to play
             </p>
           </div>
           <div {...off(3)} className="flex flex-col gap-3">
@@ -85,7 +85,7 @@ export function SamplePanel({
               <p className="title">Notes Buddy could offer</p>
             )}
             <p className="lead">
-              Made-up examples on the sample passage. Nothing analyses a recording yet.
+              Made-up examples on the sample passage. Nothing analyses a recording yet
             </p>
             <article
               aria-live="polite"

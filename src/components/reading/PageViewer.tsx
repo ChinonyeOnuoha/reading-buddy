@@ -266,7 +266,7 @@ export function PageViewer({ src, alt }: Props) {
       </div>
       <p id={hintId} className="sr-only">
         Zoom with the buttons above, or press plus and minus. When zoomed, drag the page or use the arrow keys to move around it.
-        Press zero to fit the page.
+        Press zero to fit the page
       </p>
 
       <p role="status" aria-live="polite" className="sr-only">

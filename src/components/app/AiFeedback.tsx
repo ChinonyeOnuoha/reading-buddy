@@ -20,7 +20,7 @@ const STAGE = {
   listening: "Listening to your recording…",
   preparing: "Preparing your notes…",
 } as const;
-const STILL_WORKS = "Recording and playback work as usual.";
+const STILL_WORKS = "Recording and playback work as usual";
 const KIND: Record<Moment["kind"], string> = {
   pause: "Pause",
   skipped: "Words not heard",
@@ -91,7 +91,7 @@ export function AiFeedback({
       <>
         <p className="leading-normal">
           Buddy can compare your reading with your passage using AI speech recognition. It’s off
-          unless you turn it on.
+          unless you turn it on
         </p>
         <button type="button" className="btn-secondary self-start" onClick={onTurnOn}>
           About AI feedback
@@ -99,7 +99,7 @@ export function AiFeedback({
       </>
     );
   } else if (!on) {
-    body = <p className="text-sm text-muted-foreground">Your recordings stay on this device.</p>;
+    body = <p className="text-sm text-muted-foreground">Your recordings stay on this device</p>;
   } else if (working) {
     body = (
       <div className="flex flex-wrap items-center justify-between gap-2" role="status">
@@ -127,7 +127,7 @@ export function AiFeedback({
     body = (
       <p className="text-sm text-muted-foreground">
         AI feedback needs the words you read: paste your passage, or add the words to your
-        photographed pages.
+        photographed pages
       </p>
     );
   } else {
@@ -143,8 +143,8 @@ export function AiFeedback({
         </button>
         <p className="text-sm text-muted-foreground">
           {mayTrain
-            ? "Sends this recording to AssemblyAI, which may use it to train its models."
-            : "Sends this recording to AssemblyAI to be transcribed."}
+            ? "Sends this recording to AssemblyAI, which may use it to train its models"
+            : "Sends this recording to AssemblyAI to be transcribed"}
         </p>
       </>
     );
@@ -198,26 +198,26 @@ function NotesView({
     Math.round(bs.reduce((a, b) => a + b.wpm, 0) / Math.max(1, bs.length) / 10) * 10;
   const chartLabel = `Words a minute in ${pace.bins.length} parts of the reading: about ${avg(steady)} ${
     changed.length && pace.changeAt != null
-      ? `for the first ${steady.length} parts, then about ${avg(changed)} from ${clock(pace.changeAt)}.`
-      : "throughout."
+      ? `for the first ${steady.length} parts, then about ${avg(changed)} from ${clock(pace.changeAt)}`
+      : "throughout"
   }`;
   const stripLabel = moments.length
     ? `The recording from 0:00 to ${clock(len)} with ${kinds
         .map(
           (k) => `${count(k)} ${KIND[k].toLowerCase()}${k === "pause" && count(k) > 1 ? "s" : ""}`,
         )
-        .join(", ")}, at ${moments.map((m) => clock(m.at)).join(", ")}.`
+        .join(", ")}, at ${moments.map((m) => clock(m.at)).join(", ")}`
     : "";
 
   return (
     <>
       <div className="-mt-2 flex flex-col gap-1.5">
         <p className="text-[0.9375rem] leading-normal text-muted-foreground">
-          Made by AI speech recognition, which can mishear. Listen back before deciding anything.
+          Made by AI speech recognition, which can mishear. Listen back before deciding anything
         </p>
         {offNow && (
           <p className="text-[0.9375rem] leading-normal">
-            AI feedback is off now. These notes were made before, and stay with this recording.
+            AI feedback is off now. These notes were made before, and stay with this recording
           </p>
         )}
       </div>
@@ -253,7 +253,7 @@ function NotesView({
               <span className="absolute right-0">{clock(pace.bins.at(-1)!.to)}</span>
             </figcaption>
             <p className="text-sm leading-snug text-muted-foreground">
-              Words a minute, every 20 seconds. Pauses aren’t counted as slow.
+              Words a minute, every 20 seconds. Pauses aren’t counted as slow
             </p>
           </figure>
         )}
@@ -267,7 +267,7 @@ function NotesView({
         </h3>
         {moments.length === 0 ? (
           <p className="leading-normal">
-            Nothing stood out: no long pauses inside sentences, and no skipped or repeated lines.
+            Nothing stood out: no long pauses inside sentences, and no skipped or repeated lines
           </p>
         ) : (
           <>
@@ -353,7 +353,7 @@ function NotesView({
       <p className="text-sm leading-snug text-muted-foreground">
         Not checked: pronunciation, accent and single words. Speech recognition often mishears
         these, so Buddy leaves them out. These notes are saved with this recording and deleted with
-        it.
+        it
       </p>
     </>
   );
@@ -402,15 +402,15 @@ function ChangeSheet({
         {option(
           "on",
           "On",
-          "When you ask for notes, that recording goes to AssemblyAI. Nothing is sent otherwise.",
+          "When you ask for notes, that recording goes to AssemblyAI. Nothing is sent otherwise",
         )}
-        {option("off", "Off", "Recordings stay on this device. Listening back works as usual.")}
+        {option("off", "Off", "Recordings stay on this device. Listening back works as usual")}
       </fieldset>
       {pick === "off" && (
         <p className="leading-normal">
           Notes you already have stay with their recordings. Buddy already asked AssemblyAI to
           delete recordings sent earlier; if it kept a copy for training, turning this off doesn’t
-          undo that.
+          undo that
         </p>
       )}
       <div className="rb-acts is-stacked">
@@ -452,7 +452,7 @@ export function TurnOnPanel({
           <ArrowLeft className="size-4" aria-hidden /> Back to your recording
         </button>
         <ScreenTitle>Turn on AI feedback</ScreenTitle>
-        <p className="lead">For adults reading aloud. The children’s corner never uses it.</p>
+        <p className="lead">For adults reading aloud. The children’s corner never uses it</p>
         <section aria-labelledby="ai-what" className="flex flex-col gap-2.5">
           <h2 id="ai-what" className="text-lg font-semibold">
             What happens to your recordings
@@ -461,32 +461,32 @@ export function TurnOnPanel({
             <li>
               Only when you ask for notes, that recording’s audio goes to{" "}
               <strong>AssemblyAI</strong>, a speech recognition company, on its EU servers. Your
-              passage and pages don’t.
+              passage and pages don’t
             </li>
             {mayTrain ? (
               <li>
                 <strong>AssemblyAI may use recordings to train its AI models.</strong> Reading Buddy
-                uses its free plan, which doesn’t allow switching this off.
+                uses its free plan, which doesn’t allow switching this off
               </li>
             ) : (
               <li>
                 AssemblyAI has confirmed in writing that recordings sent this way aren’t used to
-                train its models.
+                train its models
               </li>
             )}
             <li>
               Once your notes are ready, Buddy asks AssemblyAI to delete the recording and its
-              transcript.
+              transcript
               {mayTrain &&
-                " If it has already kept a copy for training, deleting the recording here doesn’t undo that."}
+                ". If it has already kept a copy for training, deleting the recording here doesn’t undo that"}
             </li>
             <li>
               Notes are saved with their recording on this device. Deleting the recording deletes
-              its notes.
+              its notes
             </li>
             <li>
               It has only been tested on a few recordings by one reader, so treat anything it notes
-              as a moment to check, not a mistake.
+              as a moment to check, not a mistake
             </li>
           </ul>
         </section>
@@ -503,7 +503,7 @@ export function TurnOnPanel({
             />
             <span className="leading-normal">
               I’m 18 or over, the recordings I send will be of my own voice, and I agree to them
-              going to AssemblyAI as described above.
+              going to AssemblyAI as described above
             </span>
           </label>
         </section>
@@ -523,7 +523,7 @@ export function TurnOnPanel({
         </button>
         {!agree && (
           <p id="ai-tick" className="text-center text-sm text-muted-foreground">
-            Tick the box to turn it on.
+            Tick the box to turn it on
           </p>
         )}
         <button

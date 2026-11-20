@@ -56,7 +56,7 @@ export function Recorder({ rec, target, kid, onStart, onListenBack }: Props) {
       await a.play();
       setPreviewing(true);
     } catch {
-      setPreviewProblem("What you’ve recorded couldn’t be played here. It’s still safe.");
+      setPreviewProblem("What you’ve recorded couldn’t be played here. It’s still safe");
     }
   };
 
@@ -126,21 +126,21 @@ export function Recorder({ rec, target, kid, onStart, onListenBack }: Props) {
     rec.problem ??
     (s === "recording"
       ? reached && !kid
-        ? "Target reached. Keep going as long as you like."
+        ? "Target reached. Keep going as long as you like"
         : kid
-          ? "Buddy is listening. Read at your own speed."
-          : "Take your time."
+          ? "Buddy is listening. Read at your own speed"
+          : "Take your time"
       : s === "paused"
-        ? "Paused time doesn’t count."
+        ? "Paused time doesn’t count"
         : rec.micError
-          ? "Allow the microphone in your browser, or upload a recording instead."
+          ? "Allow the microphone in your browser, or upload a recording instead"
           : hasTake
             ? rec.take?.notes && !kid
-              ? "Recording again replaces this one, and its AI notes, when you finish."
-              : "Recording again replaces this one when you finish."
+              ? "Recording again replaces this one, and its AI notes, when you finish"
+              : "Recording again replaces this one when you finish"
             : kid
-              ? "Press the button and read out loud."
-              : "Only recorded time counts.");
+              ? "Press the button and read out loud"
+              : "Only recorded time counts");
 
   const dot = (
     <span

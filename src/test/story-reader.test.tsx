@@ -48,7 +48,7 @@ describe("StoryReader failure handling", () => {
     fireEvent.error(container.querySelector("img")!);
     expect(
       await screen.findByText(
-        "This picture couldn’t be loaded. The words for this page are below.",
+        "This picture couldn’t be loaded. The words for this page are below",
       ),
     ).toBeTruthy();
     expect(screen.getByText("Page one text.")).toBeTruthy(); // the story itself is untouched

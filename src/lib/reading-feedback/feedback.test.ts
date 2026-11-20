@@ -29,7 +29,7 @@ describe("notes on a reading", () => {
     const f = fb(read(plain));
     expect(f.moments).toEqual([]);
     expect(f.tryNext).toBeNull();
-    expect(f.pace.summary).toMatch(/^Steady all the way through, at about \d+ words a minute\.$/);
+    expect(f.pace.summary).toMatch(/^Steady all the way through, at about \d+ words a minute$/);
   });
 
   it("leaves single-word differences out, because speech recognition mishears them", () => {
@@ -43,7 +43,7 @@ describe("notes on a reading", () => {
     expect(f.moments).toHaveLength(1);
     const m = f.moments[0]!;
     expect(m.kind).toBe("skipped");
-    expect(m.text).toBe("“A bird sang in the tree”. A line may have been skipped.");
+    expect(m.text).toBe("“A bird sang in the tree”. A line may have been skipped");
     expect(m.at).toBeGreaterThan(0);
     expect(f.tryNext).toMatch(/finger or a pen/);
   });
@@ -51,7 +51,7 @@ describe("notes on a reading", () => {
   it("lists a repeated stretch of 3 or more words", () => {
     const f = fb(read(plain.replace("sat on the mat", "sat on the sat on the mat")));
     const m = f.moments.find((x) => x.kind === "repeated");
-    expect(m?.text).toBe("“sat on the” was heard twice in a row.");
+    expect(m?.text).toBe("“sat on the” was heard twice in a row");
   });
 
   it("says once when the recording stops before the passage, instead of listing what's left", () => {
@@ -80,7 +80,7 @@ describe("notes on a reading", () => {
     expect(f.moments).toHaveLength(1);
     expect(f.moments[0]).toMatchObject({
       kind: "pause",
-      text: "About 2 seconds in “sat on … the”.",
+      text: "About 2 seconds in “sat on … the”",
     });
   });
 
@@ -106,7 +106,7 @@ describe("notes on a reading", () => {
     expect(change?.words).toBe("The cat did not");
     expect(change!.after).toBeGreaterThan(change!.before);
     const f = fb(words);
-    expect(f.pace.summary).toMatch(/then quicker from about 0:\d\d\./);
+    expect(f.pace.summary).toMatch(/then quicker from about 0:\d\d$/);
     expect(f.tryNext).toMatch(/one easy breath/);
     const text = JSON.stringify(f);
     expect(text).not.toMatch(/because|nervous|accent is|score|tired|struggl|mistake/i);

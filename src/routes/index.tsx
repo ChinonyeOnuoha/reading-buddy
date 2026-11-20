@@ -38,15 +38,15 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content: aiFeedbackConfigured()
-          ? "Build a quiet reading nook, read aloud, record yourself and listen back. A children’s corner has picture stories. Everything stays on your device, unless an adult chooses optional AI feedback for a recording."
-          : "Build a quiet reading nook, read aloud, record yourself and listen back. A children’s corner has picture stories. Everything stays on your device.",
+          ? "Build a quiet reading nook, read aloud, record yourself and listen back. A children’s corner has picture stories. Everything stays on your device, unless an adult chooses optional AI feedback for a recording"
+          : "Build a quiet reading nook, read aloud, record yourself and listen back. A children’s corner has picture stories. Everything stays on your device",
       },
       { property: "og:title", content: "Reading Buddy — practise reading aloud" },
       {
         property: "og:description",
         content: aiFeedbackConfigured()
-          ? "Read aloud, record yourself and listen back, in a calm night-time reading nook, with optional AI feedback for adults."
-          : "Read aloud, record yourself and listen back, in a calm night-time reading nook. AI feedback is not connected yet.",
+          ? "Read aloud, record yourself and listen back, in a calm night-time reading nook, with optional AI feedback for adults"
+          : "Read aloud, record yourself and listen back, in a calm night-time reading nook. AI feedback is not connected yet",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -247,7 +247,7 @@ function Index() {
       if (now && !hadTake.current[x.key] && nookLoaded && !nook.savedNoteShown && x.loaded) {
         setNook({ savedNoteShown: true });
         askToKeepStorage();
-        say("Saved on this device. You can delete it any time in Saved.");
+        say("Saved on this device. You can delete it any time in Saved");
       }
       hadTake.current[x.key] = now;
     }
@@ -259,7 +259,7 @@ function Index() {
     const snap: Snapshot = x.takeOut();
     if (x === child) setFeeling(null);
     say(
-      `${label} deleted.`,
+      `${label} deleted`,
       () => x.putBack(snap),
       () => x.release(snap),
     );
@@ -271,7 +271,7 @@ function Index() {
     if (!take) return;
     go("read");
     say(
-      "Recording deleted.",
+      "Recording deleted",
       () => x.rec.restore(take),
       () => URL.revokeObjectURL(take.url),
     );
@@ -282,7 +282,7 @@ function Index() {
     if (!gone) return;
     x.setPages(before.filter((_, k) => k !== i));
     say(
-      `Page ${i + 1} removed.`,
+      `Page ${i + 1} removed`,
       () => x.setPages(before),
       () => URL.revokeObjectURL(gone.url),
     );
@@ -336,7 +336,7 @@ function Index() {
             ? `“${getStory(prevSource.slug)?.title ?? "the story"}”`
             : "your own story";
         say(
-          `Your recording of ${name} was deleted.`,
+          `Your recording of ${name} was deleted`,
           () => {
             child.setSource(prevSource);
             child.setPage(prevPage);
@@ -383,10 +383,10 @@ function Index() {
   const adultSub =
     nook.minutes !== null
       ? `${nook.minutes} minutes a day${nook.cushion ? ` · ${colourName(nook.cushion)} cushion` : ""}`
-      : "Bring your own pages or text.";
+      : "Bring your own pages or text";
   const kidSub = child.source
     ? `Carry on with ${kidTitle}`
-    : "Eight picture stories, or bring your own.";
+    : "Pick any picture story or bring your own";
   const contentLabel = (x: ReadingSession) =>
     x.mode === "upload" && x.pages.length
       ? `${x.pages.length} photographed ${x.pages.length === 1 ? "page" : "pages"}`
@@ -409,8 +409,8 @@ function Index() {
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="text-sm text-muted-foreground">
               {ai.configured
-                ? "Saved on this device. Nothing is uploaded unless you ask for AI feedback on a recording."
-                : "Saved on this device only. Nothing is uploaded."}
+                ? "Saved on this device. Nothing is uploaded unless you ask for AI feedback on a recording"
+                : "Saved on this device only. Nothing is uploaded"}
             </p>
             {!pwa.standalone && (
               <InstallButton
@@ -469,7 +469,7 @@ function Index() {
     panel = (
       <SavedPanel
         items={items}
-        nookLine={nookBits.length ? nookBits.join(" · ") : "Nothing remembered yet."}
+        nookLine={nookBits.length ? nookBits.join(" · ") : "Nothing remembered yet"}
         hasNook={nook.remembered || nookBits.length > 0}
         onHome={toHome}
         onDeleteAll={() => setPending({ kind: "deleteAll" })}
@@ -551,8 +551,8 @@ function Index() {
         title={kid ? "Bring a story you love" : "What are you reading today?"}
         lead={
           kid
-            ? "Paste the words, or add photos of the pages. A grown-up can help."
-            : "Paste a passage or add photos of your pages."
+            ? "Paste the words, or add photos of the pages. A grown-up can help"
+            : "Paste a passage or add photos of your pages"
         }
         tabs={
           kid ? (
@@ -640,7 +640,7 @@ function Index() {
         onBack={() => setAiPage(false)}
         onDone={(on) => {
           setAiPage(false);
-          say(on ? "AI feedback is on." : "AI feedback is off.");
+          say(on ? "AI feedback is on" : "AI feedback is off");
         }}
       />
     );
@@ -695,7 +695,7 @@ function Index() {
                   hasPassage={!!mainWords}
                   onTurnOn={() => setAiPage(true)}
                   onPlayFrom={playFrom}
-                  onTurnedOff={() => say("AI feedback is off.")}
+                  onTurnedOff={() => say("AI feedback is off")}
                 />
               )
             : undefined
@@ -869,8 +869,8 @@ function Index() {
           className="mx-4 mb-3 flex flex-wrap items-center justify-between gap-2 rounded-xl bg-raised px-4 py-2 text-sm wide:mx-6"
         >
           {!pwa.online
-            ? "You’re offline. Reading Buddy still works here."
-            : "A new version of Reading Buddy is ready."}
+            ? "You’re offline. Reading Buddy still works here"
+            : "A new version of Reading Buddy is ready"}
           {pwa.online && offerUpdate && (
             <button type="button" className="text-link" onClick={pwa.applyUpdate}>
               Update now
@@ -905,7 +905,7 @@ function Index() {
         onConfirm={() => void finishAndLeave()}
         busy={busy}
         title="Finish recording and go back?"
-        body={<p>Your recording so far will be kept on this device.</p>}
+        body={<p>Your recording so far will be kept on this device</p>}
         confirmLabel="Finish and go back"
         cancelLabel="Keep reading"
       />
@@ -917,11 +917,11 @@ function Index() {
           if (take) URL.revokeObjectURL(take.url);
           setPending(null);
           go("read");
-          say("Recording and notes deleted.");
+          say("Recording and notes deleted");
         }}
         danger
         title="Delete this recording?"
-        body={<p>Its AI notes will be deleted too. This can’t be undone.</p>}
+        body={<p>Its AI notes will be deleted too. This can’t be undone</p>}
         confirmLabel="Delete recording and notes"
       />
       <Confirm
@@ -934,14 +934,14 @@ function Index() {
           }
           setFeeling(null);
           setPending(null);
-          say("All readings, recordings and notes deleted.");
+          say("All readings, recordings and notes deleted");
         }}
         danger
         title="Delete all readings, recordings and notes?"
         body={
           <p>
             Everything saved on this device will be removed, from both the main practice and the
-            children’s corner. This can’t be undone.
+            children’s corner. This can’t be undone
           </p>
         }
         confirmLabel="Delete all"
@@ -955,13 +955,13 @@ function Index() {
           setKidLampOn(false);
           setPending(null);
           toHome();
-          say("Your nook was forgotten. Saved readings are still in Saved.");
+          say("Your nook was forgotten. Saved readings are still in Saved");
         }}
         title="Forget your nook?"
         body={
           <p>
             Your reading times, cushion and beanbag go back to the start. Saved readings stay until
-            you delete them.
+            you delete them
           </p>
         }
         confirmLabel="Forget nook"
@@ -970,7 +970,7 @@ function Index() {
         open={!!micFor}
         onClose={() => setMicFor(null)}
         title={<span className={kid ? "kid" : ""}>Buddy needs to hear you</span>}
-        description="Your browser will ask to use the microphone. Recordings stay on this device."
+        description="Your browser will ask to use the microphone. Recordings stay on this device"
       >
         <div className="rb-acts">
           <button type="button" className="btn-secondary" onClick={() => setMicFor(null)}>

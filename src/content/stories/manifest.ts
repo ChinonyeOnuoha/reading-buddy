@@ -27,7 +27,7 @@ const catalogue: StoryMeta[] = [
     slug: "dad-has-six-arms",
     title: "Dad Has Six Arms",
     summary:
-      "Ada wants to draw Dad, but every time he moves, she adds another arm to her picture.",
+      "Ada wants to draw Dad, but every time he moves, she adds another arm to her picture",
     themes: ["everyday", "funny"],
     words: 252,
     extraWords: 0,
@@ -52,7 +52,7 @@ const catalogue: StoryMeta[] = [
     slug: "i-was-the-door",
     title: "I Was the Door",
     summary:
-      "Kene wants to make everyone laugh in the school play, but his noisy knocks keep interrupting Ibi.",
+      "Kene wants to make everyone laugh in the school play, but his noisy knocks keep interrupting Ibi",
     themes: ["everyday", "funny"],
     words: 583,
     extraWords: 0,
@@ -77,7 +77,7 @@ const catalogue: StoryMeta[] = [
     slug: "a-place-for-the-rain",
     title: "A Place for the Rain",
     summary:
-      "When rain washes away Teni’s chalk game, she and her cousin invent a smaller adventure indoors.",
+      "When rain washes away Teni’s chalk game, she and her cousin invent a smaller adventure indoors",
     themes: ["everyday"],
     words: 567,
     extraWords: 0,
@@ -102,7 +102,7 @@ const catalogue: StoryMeta[] = [
     slug: "the-tomato-that-went-for-a-walk",
     title: "The Tomato That Went for a Walk",
     summary:
-      "A tomato tumbles from Ejiro’s basket and sends her and Mum on a little market adventure.",
+      "A tomato tumbles from Ejiro’s basket and sends her and Mum on a little market adventure",
     themes: ["everyday", "funny"],
     words: 189,
     extraWords: 0,
@@ -127,7 +127,7 @@ const catalogue: StoryMeta[] = [
     slug: "the-case-of-the-moving-slippers",
     title: "The Case of the Moving Slippers",
     summary:
-      "Zina and Sami investigate slippers that keep turning up outside the wrong doors in their Ibadan courtyard.",
+      "Zina and Sami investigate slippers that keep turning up outside the wrong doors in their Ibadan courtyard",
     themes: ["everyday", "funny"],
     words: 2446,
     extraWords: 0,
@@ -151,7 +151,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "whoop-goes-the-pufferfish",
     title: "Whoop, Goes the Pufferfish",
-    summary: "A baby pufferfish is stranded in a tide pool until the sea comes back.",
+    summary: "A baby pufferfish is stranded in a tide pool until the sea comes back",
     themes: ["nature"],
     words: 260,
     extraWords: 90,
@@ -191,7 +191,7 @@ const catalogue: StoryMeta[] = [
     slug: "karizas-questions",
     title: "Kariza’s Questions",
     summary:
-      "Kariza loves to ask questions, and one of them leads her to a clever way to wash hands.",
+      "Kariza loves to ask questions, and one of them leads her to a clever way to wash hands",
     themes: ["everyday", "science"],
     words: 385,
     extraWords: 0,
@@ -221,7 +221,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "jackal-and-the-sun",
     title: "Jackal and the Sun",
-    summary: "A lazy jackal falls for the sun and tries to carry her home.",
+    summary: "A lazy jackal falls for the sun and tries to carry her home",
     themes: ["tales"],
     words: 316,
     extraWords: 137,
@@ -259,7 +259,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "how-zebra-got-his-stripes",
     title: "How Zebra Got His Stripes",
-    summary: "When Baboon guards the only watering hole, Zebra has had enough.",
+    summary: "When Baboon guards the only watering hole, Zebra has had enough",
     themes: ["funny", "nature"],
     words: 488,
     extraWords: 0,
@@ -288,7 +288,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "a-fish-and-a-gift",
     title: "A Fish and a Gift",
-    summary: "Yusuf waits on the beach to see what his fisherman father will bring home.",
+    summary: "Yusuf waits on the beach to see what his fisherman father will bring home",
     themes: ["everyday", "nature"],
     words: 655,
     extraWords: 0,
@@ -322,7 +322,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "searching-for-the-spirit-of-spring",
     title: "Searching for the Spirit of Spring",
-    summary: "Nkanyezi sets out to bring the spirit of celebration back to her village.",
+    summary: "Nkanyezi sets out to bring the spirit of celebration back to her village",
     themes: ["tales"],
     words: 679,
     extraWords: 0,
@@ -358,7 +358,7 @@ const catalogue: StoryMeta[] = [
   {
     slug: "the-girl-who-could-not-stop-laughing",
     title: "The Girl Who Could Not Stop Laughing",
-    summary: "T. Sundari can’t stop laughing, and her scientist brother explains why that’s fine.",
+    summary: "T. Sundari can’t stop laughing, and her scientist brother explains why that’s fine",
     themes: ["funny", "science", "everyday"],
     words: 761,
     extraWords: 36,
@@ -399,7 +399,7 @@ const catalogue: StoryMeta[] = [
     slug: "sailing-ships-and-sinking-spoons",
     title: "Sailing Ships and Sinking Spoons",
     summary:
-      "Two young monks and their teachers use an apple, a spoon and a tub to learn why ships float.",
+      "Two young monks and their teachers use an apple, a spoon and a tub to learn why ships float",
     themes: ["science"],
     words: 834,
     extraWords: 354,

@@ -101,7 +101,7 @@ export function StoryCredits({ story }: { story: StoryMeta }) {
           </ul>
           {c.source.name !== "Reading Buddy" && (
             <p className="mt-2">
-              Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators.
+              Reading Buddy is not endorsed by {c.source.name}, the publishers or the creators
             </p>
           )}
         </div>

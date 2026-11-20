@@ -38,7 +38,7 @@ export function KidTabs({
   );
 }
 
-/** "Where shall we go today?": eight picture stories, filterable by theme, each opening a fixed-size story window. */
+/** "Where shall we go today?": picture stories, filterable by theme, each opening a fixed-size story window. */
 export function StoriesStep({
   editing,
   onBack,
@@ -158,10 +158,10 @@ export function StoriesStep({
           <div role="status" className="rounded-2xl bg-raised p-5">
             <p className="kid text-lg font-bold">
               {lf?.kind === "shorter"
-                ? `There isn’t a shorter story than “${lf.title}” here yet.`
-                : "No stories match these choices."}
+                ? `There isn’t a shorter story than “${lf.title}” here yet`
+                : "No stories match these choices"}
             </p>
-            <p className="mt-1 text-muted-foreground">The whole collection is still here.</p>
+            <p className="mt-1 text-muted-foreground">The whole collection is still here</p>
             <button
               type="button"
               className="btn-secondary mt-4"
@@ -177,7 +177,7 @@ export function StoriesStep({
         {lf?.kind === "short" && (
           <p className="text-sm text-muted-foreground">
             Short reads are stories of up to {SHORT_READ_MAX_WORDS} words. That describes length,
-            not difficulty.
+            not difficulty
           </p>
         )}
       </div>

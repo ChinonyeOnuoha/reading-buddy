@@ -85,7 +85,7 @@ export function Player({
       </div>
       {problem && (
         <p role="alert" className="text-sm text-destructive">
-          The recording couldn’t be played just now. Try again in a moment.
+          The recording couldn’t be played just now. Try again in a moment
         </p>
       )}
       <audio
@@ -177,9 +177,9 @@ export function AdultReview({
         <p className="lead">
           {take
             ? take.source === "upload"
-              ? `Your uploaded recording${take.name ? `, ${take.name}` : ""}.`
-              : `You recorded ${formatTime(take.duration)}${target ? ` of your ${target} minutes` : ""}.`
-            : "No recording yet. Head back to read when you’re ready."}
+              ? `Your uploaded recording${take.name ? `, ${take.name}` : ""}`
+              : `You recorded ${formatTime(take.duration)}${target ? ` of your ${target} minutes` : ""}`
+            : "No recording yet. Head back to read when you’re ready"}
         </p>
         {take && (
           <Player
@@ -192,12 +192,12 @@ export function AdultReview({
         )}
         {feedback ? (
           <>
-            <p className="text-sm text-muted-foreground">Saved on this device.</p>
+            <p className="text-sm text-muted-foreground">Saved on this device</p>
             {take && feedback(playFrom)}
           </>
         ) : (
           <p className="text-sm text-muted-foreground">
-            Saved on this device. AI feedback isn’t connected yet.
+            Saved on this device. AI feedback isn’t connected yet
           </p>
         )}
       </div>
@@ -235,21 +235,21 @@ const RESPONSES: Record<
   easy: {
     emoji: "😊",
     title: "Ready for another?",
-    body: "Pick a story you’d like to read next.",
+    body: "Pick a story you’d like to read next",
     primary: ["Choose a story", "choose"],
     secondary: ["Not now", "close"],
   },
   hard: {
     emoji: "🙂",
-    title: "That’s okay.",
+    title: "That’s okay",
     body: "Would you like a shorter story next?",
     primary: ["Find a shorter story", "shorter"],
     secondary: ["Not now", "close"],
   },
   unsure: {
     emoji: "🤔",
-    title: "That’s okay too.",
-    body: "You can listen again, or pick another story.",
+    title: "That’s okay too",
+    body: "You can listen again, or pick another story",
     primary: ["Listen again", "again"],
     secondary: ["Choose a story", "choose"],
   },
@@ -326,7 +326,7 @@ export function KidReview({
             audioRef={audioRef}
           />
         ) : (
-          <p className="lead">No recording yet.</p>
+          <p className="lead">No recording yet</p>
         )}
         <div role="group" aria-labelledby="feel-h" className="flex flex-col gap-3">
           <h2 id="feel-h" className="kid text-lg font-bold">

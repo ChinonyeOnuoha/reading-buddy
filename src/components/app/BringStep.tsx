@@ -65,7 +65,7 @@ export function BringStep(p: Props) {
     const start = pages.length;
     s.setPages((prev) => [...prev, ...ok]);
     setSel(start);
-    setLive(`${ok.length} ${ok.length === 1 ? "page" : "pages"} added.`);
+    setLive(`${ok.length} ${ok.length === 1 ? "page" : "pages"} added`);
     p.onSound("pages");
     requestAnimationFrame(() => {
       const el = stripRef.current?.children[start] as HTMLElement | undefined;
@@ -81,7 +81,7 @@ export function BringStep(p: Props) {
       return next;
     });
     setSel(to);
-    setLive(`Page ${from + 1} moved to position ${to + 1} of ${pages.length}.`);
+    setLive(`Page ${from + 1} moved to position ${to + 1} of ${pages.length}`);
   };
   const replace = async (f?: File) => {
     if (!f) return;
@@ -95,7 +95,7 @@ export function BringStep(p: Props) {
     s.setPages((prev) =>
       prev.map((x, i) => (i === current ? { ...page, id: x.id, words: x.words } : x)),
     );
-    setLive(`Photo replaced for page ${current + 1}.`);
+    setLive(`Photo replaced for page ${current + 1}`);
   };
 
   const setMode = (m: "paste" | "upload") => s.setMode(m);
@@ -178,7 +178,7 @@ export function BringStep(p: Props) {
                 <Plus className="size-7" aria-hidden />
                 Add photos or screenshots
                 <span className="text-sm font-normal text-muted-foreground">
-                  You can add more and reorder them after.
+                  You can add more and reorder them after
                 </span>
               </button>
             ) : (
@@ -188,7 +188,7 @@ export function BringStep(p: Props) {
                     {pages.length} {pages.length === 1 ? "page" : "pages"}
                   </strong>
                   <span className="text-sm text-muted-foreground">
-                    Tap a page, then move it. Or drag.
+                    Tap a page, then move it. Or drag
                   </span>
                 </div>
                 {/* The strip scrolls sideways inside the panel; the fade at the edge shows there is more. */}
@@ -319,13 +319,13 @@ export function BringStep(p: Props) {
                 <p className="flex items-start gap-2.5 text-sm text-muted-foreground">
                   <Info className="mt-0.5 size-[18px] shrink-0 text-primary" aria-hidden />
                   Screen readers can’t read words in a photo. Use ⋯ › Add the words on any page you
-                  want read out or enlarged.
+                  want read out or enlarged
                 </p>
               </>
             )}
             {failed.length > 0 && (
               <p role="alert" className="text-sm text-destructive">
-                Couldn’t open {failed.join(", ")}. Try a JPG or PNG photo or screenshot.
+                Couldn’t open {failed.join(", ")}. Try a JPG or PNG photo or screenshot
               </p>
             )}
             <p role="status" className="sr-only">
@@ -375,7 +375,7 @@ export function BringStep(p: Props) {
         open={wordsFor !== null}
         onClose={() => setWordsFor(null)}
         title={`Add the words on page ${(wordsFor ?? 0) + 1}`}
-        description="Screen readers will read these words, and they show as resizable text under the photo while you read."
+        description="Screen readers will read these words, and they show as resizable text under the photo while you read"
       >
         <label htmlFor="page-words" className="sr-only">
           Words on this page
@@ -399,7 +399,7 @@ export function BringStep(p: Props) {
                 prev.map((x, k) => (k === i ? { ...x, words: draft.trim() || undefined } : x)),
               );
               setWordsFor(null);
-              setLive(`Words saved for page ${(i ?? 0) + 1}.`);
+              setLive(`Words saved for page ${(i ?? 0) + 1}`);
             }}
           >
             Save words
