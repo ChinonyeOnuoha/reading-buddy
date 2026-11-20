@@ -24,6 +24,31 @@ const SW_NOTE =
  */
 const catalogue: StoryMeta[] = [
   {
+    slug: "dad-has-six-arms",
+    title: "Dad Has Six Arms",
+    summary:
+      "Ada wants to draw Dad, but every time he moves, she adds another arm to her picture.",
+    themes: ["everyday", "funny"],
+    words: 252,
+    extraWords: 0,
+    pageCount: 6,
+    cardImage: "/stories/dad-has-six-arms/page-01.webp",
+    cardFit: "contain",
+    credit: {
+      publishedTitle: "Dad Has Six Arms",
+      people: [],
+      licence: null,
+      licenceUrl: null,
+      source: {
+        name: "Reading Buddy",
+        url: "https://readingbuddie.lovable.app/",
+      },
+      attribution: "",
+      acknowledgements: [],
+      changes: [],
+    },
+  },
+  {
     slug: "i-was-the-door",
     title: "I Was the Door",
     summary:
@@ -421,6 +446,7 @@ export const STORIES: StoryMeta[] = [...catalogue].sort(
 
 /** Story text is loaded only when a story is opened, one small module per story. */
 const LOADERS: Record<string, () => Promise<{ default: StoryText }>> = {
+  "dad-has-six-arms": () => import("./text/dad-has-six-arms"),
   "i-was-the-door": () => import("./text/i-was-the-door"),
   "a-place-for-the-rain": () => import("./text/a-place-for-the-rain"),
   "the-tomato-that-went-for-a-walk": () => import("./text/the-tomato-that-went-for-a-walk"),
